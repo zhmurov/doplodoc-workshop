@@ -1,0 +1,236 @@
+schemas:
+  AppProjectListResult:
+    type: object
+    description: Dicta alia interpretaris oratio efficitur possit parturient detracto.
+    properties:
+      has_more:
+        type: boolean
+        default: false
+      items:
+        type: array
+        items:
+          $ref: '#/schemas/AppProjectListItem'
+
+  AppProject:
+    type: object
+    description: Lacus intellegebat enim eloquentiam potenti suspendisse adolescens interesset petentium.
+    properties:
+      id:
+        type: string
+        example: "1"
+      app_id:
+        type: string
+        example: "20"
+      parent_app_project_id:
+        type: string
+        description: "2"
+      status:
+        type: string
+        enum:
+          - CREATING
+          - READY
+          - ARCHIVE
+          - ERROR
+        description: Accumsan possit sea scelerisque fusce fabulas oporteat.
+      created:
+        type: string
+        format: date-time
+      name:
+        type: string
+        example: "My app-project"
+      item_price:
+        type: number
+        format: double
+        example: 0.05
+      parameters:
+        type: object
+      errors:
+        type: array
+        items:
+          $ref: '#/schemas/ItemError'
+      read_only:
+        type: boolean
+
+  AppProjectListItem:
+    type: object
+    description: Проект.
+    properties:
+      id:
+        type: string
+        example: "1"
+      app_id:
+        type: string
+        example: "20"
+      parent_app_project_id:
+        type: string
+        description: "2"
+      status:
+        type: string
+        enum:
+          - CREATING
+          - READY
+          - ARCHIVED
+          - ERROR
+        description: Nisi sumo elitr sociosqu rutrum potenti quaestio.
+      created:
+        type: string
+        format: date-time
+      name:
+        type: string
+        example: "My app-project"
+      item_price:
+        type: number
+        format: double
+        example: 0.05
+      parameters:
+        type: object
+      errors:
+        type: array
+        items:
+          $ref: '#/schemas/ItemError'
+      read_only:
+        type: boolean
+
+  AppProjectCreateForm:
+    type: object
+    description: Sententiae quem vim amet persius placerat putent venenatis inciderint.
+    properties:
+      app_id:
+        type: string
+        description: Enim senectus ignota animal tortor invidunt cetero hinc delenit.
+      parent_app_project_id:
+        type: string
+        description: Non bibendum prodesset sagittis persius gloriatur vehicula necessitatibus quaestio.
+      name:
+        type: string
+        description: Utroque urna sodales vivamus odio.
+      parameters:
+        type: object
+        description: Suscipit nihil feugiat expetendis signiferumque.
+
+  ItemListResult:
+    type: object
+    description: Cum tincidunt odio posse duo fuisset hendrerit.
+    properties:
+      has_more:
+        type: boolean
+        default: false
+      content:
+        type: array
+        items:
+          $ref: '#/schemas/Item'
+
+  Item:
+    type: object
+    description: Facilisi magnis deterruisset atqui deserunt mandamus meliore nec movet suas.
+    required:
+      - app_project_id
+      - input_data
+    properties:
+      id:
+        type: string
+        description: Aeque deseruisse placerat movet senectus inceptos.
+      app_project_id:
+        type: string
+        description: Saepe assueverit docendi graeci aliquid tibique his vestibulum civibus.
+      batch_id:
+        type: string
+        description: Eleifend ludus ultrices commodo gubergren mauris ornare nullam periculis.
+      status:
+        type: string
+        description: Magnis eirmod epicurei quidam vocent ultricies ante antiopam.
+        enum:
+          - NEW
+          - PROCESSING
+          - COMPLETED
+          - ERROR
+          - CANCELLED
+          - ARCHIVE
+          - NO_MONEY
+          - STOPPED
+      input_data:
+        type: object
+        description: Senectus ea iriure fabulas altera nisi ut.
+      output_data:
+        type: object
+        description: Pellentesque doming autem expetenda impetus.
+      errors:
+        type: array
+        items:
+          $ref: '#/schemas/ItemError'
+      created_at:
+        type: string
+        format: date-time
+        description: Habemus graeco efficiantur labores scripserit doctus.
+      started_at:
+        type: string
+        format: date-time
+        description: Sanctus quaerendum ex referrentur an affert duis posse bibendum.
+      finished_at:
+        type: string
+        format: date-time
+        description: Reprehendunt an ludus vis ligula proin.
+
+  ItemCreateForm:
+    type: object
+    description: Prodesset augue alterum harum disputationi bibendum reprimique.
+    required:
+      - input_data
+    properties:
+      batch_id:
+        type: string
+        description: Splendide cubilia veritus vulputate odio utroque.
+      input_data:
+        type: object
+        description: Minim pertinacia suscipit ut praesent interesset pro.
+
+  RequestError:
+    type: object
+    required:
+      - request_id
+      - code
+      - message
+    properties:
+      request_id:
+        type: string
+        example: 337d68d1-974d-42b1-a2d0-6234f6373eed
+        description: Natum salutatus patrioque ridiculus vituperata odio ceteros nostrum aliquid liber.
+      code:
+        type: string
+        description: Ferri proin euismod ne indoctum atomorum.
+        example: DOES_NOT_EXIST
+      message:
+        type: string
+        description: Condimentum integer graeco malesuada tibique usu altera gloriatur.
+        example: Объект не существует
+      payload:
+        type: object
+        description: Deterruisset senserit doming ubique taciti mazim novum morbi postulant fugit.
+        nullable: true
+        example: {
+          "instruction_class": "dog",
+          "instruction_field": "example"
+        }
+
+  ItemError:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: string
+        description: Cu salutatus civibus noluisse fringilla elaboraret constituam aliquip.
+        example: DOES_NOT_EXIST
+      message:
+        type: string
+        description: Repudiare feugait movet ligula etiam dictum condimentum dictum delicata.
+        example: Non malorum antiopam sed alienum persequeris inimicus curae inimicus.
+      payload:
+        type: object
+        description: Dico eloquentiam mea id mentitum quas vitae.
+        nullable: true
+        example: {
+          "instruction_class": "dog",
+          "instruction_field": "example"
+        }

@@ -1,0 +1,18 @@
+navigation:
+  logo:
+    url: ../index.html
+    text: Lorem ipsum
+    target: _self
+  header:
+    leftItems:
+      - type: link
+        text: Internal API
+        url: ./index.html
+        target: _self
+items:
+  - include:
+      path: .
+      includers:
+        - name: openapi
+          input: ./internal/api.yaml
+      mode: link

@@ -1,0 +1,15 @@
+href: index.md
+navigation:
+  logo:
+    url: ./index.html
+    text: Lorem ipsum
+  header:
+    leftItems:
+      - type: link
+        text: Internal API
+        url: ./internal/index.html
+items:
+  - name: About
+    href: about.md
+  - name: Overview
+    href: overview.md

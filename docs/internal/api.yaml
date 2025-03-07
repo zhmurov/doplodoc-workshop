@@ -1,0 +1,25 @@
+openapi: "3.0.2"
+info:
+  title: Some internal API
+  version: "0.12"
+servers:
+  - url: https://example.com/api/v0
+
+tags:
+  - name: app-project
+    description: Amet vix donec sapientem atomorum sagittis epicurei offendit mediocritatem legimus. Mollis error eloquentiam doctus nonumes. Perpetua ne veri laudem venenatis integer senserit ignota.
+  - name: item
+    description: Placerat mea vocibus eripuit fuisset necessitatibus eius ante epicuri deseruisse. Theophrastus sit no eloquentiam ne varius. Detraxit assueverit contentiones luctus aliquip.
+
+paths:
+  /app-projects:
+    $ref: './endpoints/app-projects.yaml#/endpoint'
+  /app-projects/{app_project_id}:
+    $ref: './endpoints/app-project.yaml#/endpoint'
+  /app-projects/{app_project_id}/archive:
+    $ref: './endpoints/app-project-archive.yaml#/endpoint'
+
+  /app-projects/{app_project_id}/items/{item_id}:
+    $ref: './endpoints/item.yaml#/endpoint'
+  /app-projects/{app_project_id}/items:
+    $ref: './endpoints/items.yaml#/endpoint'
