@@ -6,9 +6,15 @@ navigation:
   header:
     leftItems:
       - type: link
+        text: Documentation
+        url: ../about.html
+        target: _self
+      - type: link
         text: Internal API
         url: ./index.html
         target: _self
+    rightItems:
+      - type: controls
 items:
   - include:
       path: .

@@ -1,13 +1,21 @@
-href: index.md
+href: index.yaml
 navigation:
   logo:
     url: ./index.html
     text: Lorem ipsum
+    target: _self
   header:
     leftItems:
       - type: link
+        text: Documentation
+        url: ./about.html
+        target: _self
+      - type: link
         text: Internal API
         url: ./internal/index.html
+        target: _self
+    rightItems:
+      - type: controls
 items:
   - name: About
     href: about.md
